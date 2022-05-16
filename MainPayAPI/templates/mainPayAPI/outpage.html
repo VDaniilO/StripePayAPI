@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>main page</title>
+  </head>
+  <body>
+    <div class="main-block">
+      <div class = "out-all-info">
+        {% for i in allInfo %}
+          <p>{{ i.name }}</p>
+          <p>{{ i.description }}</p>
+          <p>{{ i.price }}</p>
+        {% endfor %}
+      </div>
+      <div class="buy-method">
+        <form action="/create-checkout-session" method="POST">
+        <button type="submit">Checkout</button>
+      </div>
+    </div>
+
+  </body>
+</html>

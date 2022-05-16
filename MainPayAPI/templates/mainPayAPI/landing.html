@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Buy cool new product</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://polyfill.io/v3/polyfill.min.js?version=3.52.1&features=fetch"></script>
+    <script src="https://js.stripe.com/v3/"></script>
+  </head>
+  <body>
+    <section>
+      {% for i in outInfo %}
+        <div class="product">
+          <div class="description">
+            <h3>Name: {{ i.name }}</h3>
+            <h5>Desciption: {{ i.description}}</h5>
+            <h5>Price: {{ i.price}}</h5>
+          </div>
+        </div>
+        <form action="{% url 'checkout_session' i.pk %}" method="POST">{% csrf_token %}
+          <button type="submit" id="checkout-button">Checkout</button>
+        </form>
+        {% endfor %}
+    </section>
+  </body>
+</html>
